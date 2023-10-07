@@ -1,0 +1,44 @@
+﻿@using Microsoft.AspNetCore.Authentication
+
+@{
+    ViewData["Title"] = "User Info Page";
+		Layout = "_Layout";
+}
+
+<h1>User Info</h1>
+<hr>
+<br/>
+
+<h2>Claims from /connect/userinfo endpoint</h2>
+
+@foreach (var claim in Model)
+{
+	<dt>@claim.Type</dt>
+	<dd>@claim.Value</dd>
+}
+
+<hr />
+<br/>
+
+<h2>Claims from User</h2>
+
+<dl>
+	@foreach (var claim in User.Claims)
+	{
+		<dt>@claim.Type</dt>
+		<dd>@claim.Value</dd>
+	}
+</dl>
+
+<hr />
+<br/>
+
+<h2>Properties</h2>
+
+<dl>
+	@foreach (var prop in (await Context.AuthenticateAsync()).Properties.Items)
+	{
+		<dt>@prop.Key</dt>
+		<dd>@prop.Value</dd>
+	}
+</dl>

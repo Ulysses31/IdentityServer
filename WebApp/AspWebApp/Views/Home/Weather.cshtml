@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Weather";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>Use this page to view @ViewData["Title"].</p>
+
+
+<table class="table table-responsive table-hover table-bordered">
+    <tr>
+        <th>Data</th>
+        <th>Summary</th>
+        <th>TemperatureF</th>
+        <th>TemperatureC</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Data</td>
+            <td>@item.Summary</td>
+            <td>@item.TemperatureF</td>
+            <td>@item.TemperatureC</td>
+        </tr>
+    }
+</table>
